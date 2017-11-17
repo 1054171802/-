@@ -1,0 +1,42 @@
+if(a)  当a为非0时，判断为真，执行体内代码
+       当a为0时，判断为假，不执行
+if(!a) 当a为0时，判断为真，执行
+       当a为非0时，判断为假，不执行
+
+pow(x,y)结果是double型
+
+循环中，Ctrl+z 可以跳出
+
+数组作为参数传递时，传递的是其首地址，所以在被调用的函数中修改其内容时，外部函数中其数组的内容也会相应变化。
+
+带空格输入:
+1.gets(str);
+2.scanf("%[^\n]",str);
+
+清空输入缓冲区
+1.setbuf(stdin,NULL);//将标准输入缓冲区置空NULL
+2.char c;
+   ....  
+  while((c = getchar()) != EOF && c != '\n');
+3.fflush(stdin);//刷新标准输入缓冲区，把输入缓冲区里的东西丢弃（不通用，不建议）
+4.getchar();//www
+
+转换大小写
+1.<ctype.h>  
+  tolower();//参数大写，返回小写，若非大写字符，返回该物
+  toupper();//参数小写，返回大写，同上
+ps:isalpha();//判断参数为英文字母否，是则返回非零，否则返回零
+
+关于string
+#include<string>
+using namespace std;
+1.getline(cin,str);//输入str
+2.getlinr(cin,str,'\n');//输入str，以'\n'结束
+3.str.size();//返回元素数
+
+输出x小数点后2位
+#include<iomanip>
+cout.setf(ios::fixed);
+cout<<fixed<<setprecision(2)<<x；
+cout.unsetf(ios::fixed);
+cout<<setprecision(2)<<x;
