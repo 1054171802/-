@@ -1,0 +1,14 @@
+Win系统System进程占用CPU过高的解决办法
+.在计算机“服务”界面列表中不启用Superfetch服务
+https://jingyan.baidu.com/article/a3a3f811cfaf098da2eb8acf.html
+
+windows10 ntoskrnl.exe 在系统空闲时大量占用cpu 
+.控制面板-管理工具-任务计划程序-任务计划程序(本地)-详细信息下拉,
+.最下面找到process?memory?diagnostic?events-双击,禁用相关的2个计划任务.
+https://zhidao.baidu.com/question/1820469010329775948.html
+
+无线流量吸血鬼
+设置-wlan-点进当前所连网络-设为按流量计费的连接
+
+win10自动更新
+https://www.zhihu.com/question/62127415

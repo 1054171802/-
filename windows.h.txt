@@ -1,0 +1,6 @@
+这几个是windows.h中包含的几个最重要的和最基本的头文件：
+windef.h——基本型态定义
+winbase.h——Kernel函数
+wingdi.h——图形设备接口函数
+winuser.h——使用者接口函数
+ 

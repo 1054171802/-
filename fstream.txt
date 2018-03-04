@@ -1,0 +1,32 @@
+ios::in	        为输入(读)而打开文件
+ios::out	为输出(写)而打开文件
+ios::ate	初始位置：文件尾
+ios::app	所有输出附加在文件末尾
+ios::trunc	如果文件已存在则先删除该文件
+ios::binary	二进制方式
+
+#include<fstream>
+fstream FILE;
+FILE.open("a.txt",ios::out||ios::in);//out到文件，in到程序
+while(!FILE.eof()){...}//读到最后一个字符再之后的文件结束符时才返回真，即未结束就是假，会在读到                        //最后一个字符后再多读一次
+                        //可以用FILE.peek() == EOF
+FILE.close();
+
+ifstream in("a.txt");//输入到程序，不可以创建
+ofstream out("a.txt");
+out<<"aaaa";
+
+ios::skipws -- Skip white space. 跳过空白（空格，表格键。。。。）
+unsetf(。。。) -- 取消。。。格式 设置
+cin.unsetf(ios::skipws); //取消cin输入跳过空白的默认设置
+                         //即不跳过空格，因为>>默认状态下是跳过空格的 
+（不是所有 编译器 都支持 ios::skipws. GNU C++ 肯定支持它。）
+
+接收空格回车从文件输入并复制输出到文件
+1.char ch;
+  fin.unsetf(ios::skipws);
+  while(fin>>ch) fout<<ch;
+2.getline(cin,str);//可以接收空格，不能回车，所以 
+  while(getline(fin,str),fin.eof()!=1) {fout<<str<<endl;}//按行复制
+  
+
