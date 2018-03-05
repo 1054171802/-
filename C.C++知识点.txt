@@ -1,0 +1,206 @@
+﻿if(a)  当a为非0时，判断为真，执行体内代码
+       当a为0时，判断为假，不执行
+if(!a) 当a为0时，判断为真，执行
+       当a为非0时，判断为假，不执行
+
+pow(x,y)结果是double型
+
+循环中，Ctrl+z 可以跳出
+
+数组作为参数传递时，传递的是其首地址，所以在被调用的函数中修改其内容时，外部函数中其数组的内容也会相应变化。
+
+带空格输入:
+1.gets(char *str);
+2.scanf("%[^\n]",str);//正则表达式:[1-7 a-h]只认范围里的，^表示非
+3.getline(cin,string str);
+
+清空输入缓冲区
+1.setbuf(stdin,NULL);//将标准输入缓冲区置空NULL
+2.char c;
+   ....  
+  while((c = getchar()) != EOF && c != '\n');
+3.fflush(stdin);//刷新标准输入缓冲区，把输入缓冲区里的东西丢弃（不通用，不建议）
+4.getchar();//www
+
+转换大小写
+1.<ctype.h>  
+  tolower();//参数大写，返回小写，若非大写字符，返回该物
+  toupper();//参数小写，返回大写，同上
+ps:isalpha();//判断参数为英文字母否，是则返回非零，否则返回零
+
+关于string
+#include<string>
+using namespace std;
+1.getline(cin,str);//输入str
+2.getlinr(cin,str,'\n');//输入str，以'\n'结束
+3.str.size();//返回元素数
+4.str(10,'i');//=iiiiiiiiii
+5.（1）erase(pos,n); 删除从pos开始的n个字符，比如erase(0,1)就是删除第一个字符
+  （2）erase(position);删除position处的一个字符(position是个string类型的迭代器)
+  （3）erase(first,last);删除从first到last之间的字符（first和last都是迭代器）
+   eg: str.erase (str.begin()+5, str.end()-7)
+
+输出x小数点后2位
+#include<iomanip>
+cout.setf(ios::fixed);
+cout<<fixed<<setprecision(2)<<x；//0.20
+cout.unsetf(ios::fixed);
+cout<<setprecision(2)<<x;//0.2
+
+#include<sstream>
+istringstream::str()//函数返回的是一个字符串
+stringstream::clear()//多次使用，先清空此对象的流，不能使用stream.str(""); 
+                     //实际上，它并不清空任何内容，它只是重置了流的状态标志而已 
+ps:但如果你要在程序中用同一个流，反复读写大量的数据，将会造成大量的内存消耗，这时候，需要适时地清除一下缓冲 (用 stream.str("") )。
+
+二位数组求长
+int len=sizeof(p)/sizeof(int);//总长
+int len2=sizeof(p[0])/sizeof(int);//第一维
+int len3=len/len2;//第二维
+//sizeof(a)/sizeof(a[0])
+
+整数-浮点数=浮点数（整数先变成浮点）
+
+double格式化：%lf
+
+printf("%04d",5);//0005
+
+函数floor(x)返回不超过x的最大整数，一般四舍五入用 floor(x+0.5)
+ceil(x)返回大于x的最小整数
+
+xey 即x*10^y; 
+
+#include<string.h>
+memcpy(b,a,sizeof(int)*k);//从整型数组a赋值k个元素到数组b
+memcpy(b,a,sizeof(a));//将a都复制给b
+memset(b,0,sizeof(b));//将b归零化
+
+s=n[i=0][j=m-1]=1;//一行代码，可以这么写
+
+sprintf(str,"%d",111);//格式化输入到字符串中（str为char*型）
+
+strchr(str,character);//返回character字符在str字符串中第一次出现位置的指针
+                      //没有就返回NULL //（str为char*型）
+strcmp(str,str);// 字符串1=字符串2，返回0
+                // 字符串1>字符串2，返回一个正整数
+                // 字符串1<字符串2，返回一个负整数。
+
+#include<ctype.h>//<cctype>
+int isalpha(int ch)//为英文字母时返回不一定为1的非零，否则返回零
+isalnum(c)//判断c是否为英文字母或数字
+isupper(c)//判断c是否为大写英文字母
+islower(c)//判断c是否为小写英文字母
+isdigit(c)//判断c是否为数字
+
+EOF是int型
+
+在DEV C++ 中，i的作用域仅限于for循
+
+范围：
+int：-2147483648 --- +2147483648
+double：-1.7*10^-308 --- +1.7*10^308
+       精度16位（整数位加小数位）
+long   2147483648～2147483647
+long long的最大值：9223372036854775807
+
+#iunclude<math.h>
+double sqrt(double)//开方	
+double pow(int x,int y);x的y次方
+
+#include <algorithm>
+sort(*begin,*end)//默认升序，[begin,end)
+int cmp(int a,int b)
+{
+  if(a>b)    //降序排列
+  return 1; 
+  else
+  return 0;
+}
+sort(a,a+5,cmp);
+
+typedef struct A{}A;
+
+codeblocks中：
+1.ctrl+r可以替换变量名称
+2.shift+tab 可以多行缩进
+3.右键按住可以拖动代码浏览区域
+4.ctrl+右键可以选择切换文档窗口
+5.ctrl+d可以复制当前行到下一行
+6.ctrl+q退出软件
+	       
+template<class T>//或<typename T>
+
+（1）一维数组
+a=new double[n+1];
+delete []a;
+（2
+）二维数组
+char **puzz;
+puzz=new char*[hang];
+for(int i=0;i<hang;i++)
+    puzz[i]=new char[lie];
+
+Keep It Simple and Stupid
+
+%o 八进制
+%x 十六进制
+
+2^32=4294967296
+
+cmd下：type a.txt  可直接在屏幕上显示
+
+cin.get()是保留回车在输入流队列中的.而cin是丢弃回车的.
+
+对齐输出
+（1）#include<iomanip>
+     cout<<setiosflags(ios::right)<<setw(5);//左对齐，右即right
+（2）cout.width(4);//设置结果宽度为4         
+     cout.setf(ios::left, ios::adjustfield)；//设置对齐为左对齐方式  
+（3）#include<iomanip>
+     cout<<setw(5)<<a<<endl;//右对齐
+     cout<<left<<setw(5)<<a<<endl;
+     
+
+enum day{aa,bb,cc};
+
+关于字符串比较
+1.equals(),都是相等返回true，不相等返回flase。
+  equals()比较的是两个对象的内容是否一致
+2.int strcmp(const char* s1,const char* s2)  返回0即相等
+3.compare()//s1.compare(s2)，若返回值为0，则两者相等。
+4.在比较时不能利用符号“==”，“==”符号比较的是两个对象的地址是否相等
+
+友元关系不能被继承，基类的友元对派生类没有特殊的访问权限。
+
+peek()
+用于读取并返回下一个字符，但并不提取该字符到输入流中，也就是说，依然让该字符作为将要提取到输入流的下一个字符。文件流输入中也可用。
+
+#include<stdlib>
+system("cls");//控制台下清屏
+
+#include<sstream>
+stringstream s;
+s<<eee;//输入流
+s>>str;//输出流
+
+a==b==c//先判断a==b，再用其运算结果(ture,false)来和c比较
+
+double a=1;a==(int)a;//是真值
+
+inf一般是因为得到的数值，超出浮点数的表示范围
+nan一般是因为对浮点数进行了未定义的操作，如对-1开方。
+
+cout<<fixed<<setprecision(0)<<a;//可用于输出长的double型整数位
+
+使用stringstream输出double，当小数位数很多的时候，会丢掉一些位数，原来“stringstream对象默认精度为6
+
+#include<stdlib.h>
+exit();//退出程序
+
+int main(int argc,char *argv[]) 
+
+a<<n //代表 a*2^n 
+
+记录运行时间
+#include<time.h>
+printf("time used = %.2f\n",(double)clock()/CLOCKS_PER_SEC);
