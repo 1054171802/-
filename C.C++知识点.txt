@@ -204,3 +204,50 @@ a<<n //代表 a*2^n
 记录运行时间
 #include<time.h>
 printf("time used = %.2f\n",(double)clock()/CLOCKS_PER_SEC);
+
+
+#include<cmath>
+PI=atan(1.0)*4
+
+//成员函数重载前置++  
+Integer& Integer::operator++()  
+{  
+    ++n_;  
+    return *this;  
+}  
+//成员函数重载后置++  
+Integer& Integer::operator++(int)  
+{  
+    Integer tmp(n_);  
+    ++n_;  
+    return tmp;  
+}  
+
+ %d是十进制 %o是八进制 %x是十六进制 
+//十六进制输入  
+cin >> hex >> a;  
+//八进制输入  
+cin >> oct >> a;  
+//十进制输入  
+cout << dec << a;  
+
+#inlcude<cmath>
+log()//以e为底
+log10()//以10为底
+loga(b)=logc(b)/logc(a)
+
+exp(x);//即指数e的x次方
+
+b & 1//取b二进制的最低位，判断和1是否相同，相同返回1，否则返回0，可用于判断奇偶
+b>>1//把b的二进制右移一位，即去掉其二进制位的最低位
+
+关于字符串和数字的转换
+#inlcude<stdlib.h>
+1、itoa(int n,char *str,int radix);//将n转为radix进制（2-36），然后转为字符数组给*str
+2、itol();把长整型转换为字符串
+3、atoi();把字符串转化为整形
+4、atol();把字符串转化为长整形
+5、atof();把字符串转化为双精度浮点型
+6、strtod()//将字符串转换为双精度浮点型值，并报告不能被转换的所有剩余数字
+7、strtol()//将字符串转换为长整值，并报告不能被转换的所有剩余数字
+8、strtoul()//将字符串转换为无符号长整型值，并报告不能被转换的所有剩余数字
